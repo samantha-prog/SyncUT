@@ -1,0 +1,24 @@
+{
+  "name": "@plataforma/sdk",
+  "version": "1.0.0",
+  "description": "SDK centralizado para Supabase, Resend y utilidades core",
+  "type": "module",
+  "exports": {
+    "./client": {
+      "default": "./src/client.ts"
+    },
+    "./types": {
+      "default": "./src/types.ts"
+    }
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.105.4",
+    "resend": "^6.12.3"
+  },
+  "devDependencies": {
+    "@plataforma/types": "workspace:*",
+    "typescript": "^5.3.3"
+  },
+  "private": true
+}

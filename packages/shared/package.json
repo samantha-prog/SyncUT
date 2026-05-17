@@ -1,0 +1,16 @@
+{
+  "name": "@plataforma/shared",
+  "version": "1.0.0",
+  "description": "Utilidades compartidas, validadores y constantes",
+  "type": "module",
+  "exports": {
+    "./validators": {
+      "default": "./src/validators.ts"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "zod": "^4.4.3"
+  },
+  "private": true
+}
