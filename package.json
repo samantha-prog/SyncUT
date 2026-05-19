@@ -4,6 +4,9 @@
   "description": "Plataforma Universitaria Integral - SaaS para gestión académica",
   "private": true,
   "packageManager": "pnpm@10.17.1",
+  "engines": {
+    "node": "20.x"
+  },
   "type": "module",
   "scripts": {
     "dev": "turbo run dev",
