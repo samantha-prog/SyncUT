@@ -284,6 +284,33 @@ import { validateEmail, validatePassword } from '@plataforma/shared'
 
 ---
 
+## 🧪 CONVENCIONES CLAVE DE DESARROLLO (ESTADO, ACTIONS, TESTS Y EDGE FUNCTIONS)
+
+Para mantener la consistencia entre squads, se establecen las siguientes convenciones obligatorias:
+
+### 1. 🗄️ Gestión de Estado Global (Zustand)
+- **Estado Local/Módulo:** Si el estado solo concierne a un Squad, se debe crear un store de Zustand dentro de la carpeta `hooks/` o `store/` de su respectivo módulo en `apps/web/app/(modulo)/hooks/useModuloStore.ts`.
+- **Estado Global/Compartido:** Si el estado es compartido por múltiples squads (ej. notificaciones globales, datos de sesión del usuario actual), el store debe crearse en `packages/shared/src/stores/`.
+  - Ejemplo: `import { useUserStore } from '@plataforma/shared'`
+
+### 2. ⚡ Lógica de Backend y Server Actions (Next.js)
+- Toda la lógica que requiera ejecutarse en el servidor o mutar datos debe implementarse usando **Server Actions** o **API Routes**.
+- **Server Actions por Módulo:** Se deben colocar dentro de una carpeta `actions/` en la carpeta raíz de cada módulo.
+  - Ejemplo: `apps/web/app/(citas)/actions/citasActions.ts`
+- **API Routes:** Si se necesita exponer un endpoint REST tradicional para webhooks u otras integraciones, se creará bajo `apps/web/app/api/`.
+
+### 3. 🧪 Pruebas Unitarias e Integración (Vitest y Playwright)
+- **Pruebas Unitarias / Componentes (Vitest):** Deben ubicarse **al lado del archivo que prueban** usando la extensión `.test.ts` o `.test.tsx`. Esto facilita que cada squad sea dueño de sus tests.
+  - Ejemplo: `apps/web/app/(auth)/components/LoginForm.tsx` y su test en `apps/web/app/(auth)/components/LoginForm.test.tsx`.
+- **Pruebas de Extremo a Extremo / E2E (Playwright):** Se configurarán dentro de una carpeta global `apps/web/e2e/` o bien dentro de una carpeta `__tests__/e2e/` en el módulo de cada squad.
+
+### 4. ☁️ Supabase Edge Functions (Lógica Serverless en BD)
+- Si se necesita ejecutar tareas serverless fuera de Next.js (por ejemplo, automatizaciones activadas por triggers de base de datos o webhooks seguros), estas se colocarán en `supabase/functions/`.
+- **Ubicación:** `supabase/functions/[nombre-de-la-funcion]/index.ts`
+- **Ownership:** Cada squad es responsable de crear y mantener las Edge Functions asociadas a su alcance (ej. Squad 4 para envíos masivos o webhooks complejos).
+
+---
+
 ## 🔄 FLUJO DE COLABORACIÓN
 
 ```

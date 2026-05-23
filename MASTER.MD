@@ -122,6 +122,11 @@ Every task must include:
 - Do not introduce new patterns if an existing shared pattern already exists.
 - Prefer small, reviewable PRs.
 - Do not merge code that depends on unfinished work without a stub, mock, or contract.
+- **State Management (Zustand):** Local module state goes in `(modulo)/hooks/useModuloStore.ts`. Shared cross-module state goes in `packages/shared/src/stores/`.
+- **Backend & Server Actions:** All data mutations or server-side logic must be written as Server Actions under `(modulo)/actions/` or API Routes under `apps/web/app/api/`.
+- **Testing:** Unit tests (Vitest) must reside next to the files they test (e.g. `Component.test.tsx` next to `Component.tsx`). E2E tests (Playwright) go in the global `apps/web/e2e/` folder.
+- **Supabase Edge Functions:** Any background/serverless triggers must be stored in `supabase/functions/` and maintained by the responsible squad.
+- **Environment Variables:** All teams must refer to `.env.example` in the root to configure their local development environments. Do not commit actual secrets to the repository.
 
 ## 6. Recommended Workflow
 
