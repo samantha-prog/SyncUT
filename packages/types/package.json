@@ -1,0 +1,21 @@
+{
+  "name": "@plataforma/types",
+  "version": "1.0.0",
+  "description": "Tipos autogenerados de Supabase PostgreSQL",
+  "type": "module",
+  "types": "./src/database.types.ts",
+  "exports": {
+    ".": {
+      "types": "./src/database.types.ts",
+      "default": "./src/database.types.ts"
+    },
+    "./database": {
+      "types": "./src/database.types.ts",
+      "default": "./src/database.types.ts"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "private": true
+}
