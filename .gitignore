@@ -32,3 +32,5 @@ Thumbs.db
 # Testing
 .playwright/
 test-results/
+.vercel
+.env*.local
