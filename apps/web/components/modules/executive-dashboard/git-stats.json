@@ -1,5 +1,8 @@
 {
-  "totalCommits": 57,
+  "totalCommits": 58,
+  "totalPRs": 8,
+  "mergedPRs": 8,
+  "openPRs": 0,
   "commitsBySquad": [
     {
       "squad": "S1 (Justificaciones)",
@@ -26,6 +29,38 @@
       "progreso": 0
     }
   ],
+  "prsBySquad": [
+    {
+      "squad": "S1 (Justificaciones)",
+      "total": 2,
+      "closed": 2
+    },
+    {
+      "squad": "S2 (Autenticación)",
+      "total": 0,
+      "closed": 0
+    },
+    {
+      "squad": "S3 (Citas)",
+      "total": 1,
+      "closed": 1
+    },
+    {
+      "squad": "S4 (Notificaciones)",
+      "total": 0,
+      "closed": 0
+    },
+    {
+      "squad": "S5 (Incidencias)",
+      "total": 2,
+      "closed": 2
+    },
+    {
+      "squad": "S6 (Chatbot)",
+      "total": 0,
+      "closed": 0
+    }
+  ],
   "commitsByWeek": [
     {
       "week": "W-3",
@@ -41,10 +76,22 @@
     },
     {
       "week": "Actual",
-      "commits": 28
+      "commits": 29
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "validation",
+      "description": "feat(admin): load real git statistics, assign real squad members, and adapt dashboard UI to design system theme",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "05-jun",
+      "time": "19:07",
+      "status": "Completado",
+      "impact": "Alto"
+    },
     {
       "user": "Jassiel García",
       "action": "hotfix",
@@ -214,76 +261,64 @@
       "impact": "Medio"
     },
     {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "merge: integrate squad-4 notifications docs",
-      "module": "Notificaciones",
+      "user": "Langostin",
+      "action": "approval",
+      "description": "Pull Request #8: prueba pull request (Estado: CLOSED)",
+      "module": "Dashboard Base",
       "squad": "Admin Master",
       "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:11",
-      "status": "Completado",
+      "date": "05-jun",
+      "time": "11:59",
+      "status": "Fucionado",
       "impact": "Alto"
     },
     {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "merge: integrate squad-1 justifications updates",
-      "module": "Justificaciones",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:11",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "chore: align CI, clean generated artifacts, and enable web typecheck",
+      "user": "Cangregito",
+      "action": "approval",
+      "description": "Pull Request #7: develop-test (Estado: CLOSED)",
       "module": "Dashboard Base",
       "squad": "Admin Master",
       "sprint": "Sprint 3",
       "date": "03-jun",
-      "time": "18:11",
-      "status": "Completado",
-      "impact": "Medio"
+      "time": "18:32",
+      "status": "Fucionado",
+      "impact": "Alto"
     },
     {
-      "user": "Joel Chaparro",
-      "action": "merge",
-      "description": "Merge branch 'feature/squad-1-justifications' of https://github.com/Cangregito/SyncUT into feature/squad-1-justifications",
+      "user": "Cangregito",
+      "action": "approval",
+      "description": "Pull Request #6: docs: define modulo 5 incidencias y reglas semaforo semanal (Estado: CLOSED)",
+      "module": "Incidencias",
+      "squad": "Squad 5",
+      "sprint": "Sprint 3",
+      "date": "03-jun",
+      "time": "18:31",
+      "status": "Fucionado",
+      "impact": "Alto"
+    },
+    {
+      "user": "panadero414",
+      "action": "approval",
+      "description": "Pull Request #5: Feature/squad 1 justifications (Estado: CLOSED)",
       "module": "Justificaciones",
       "squad": "Squad 1",
       "sprint": "Sprint 3",
       "date": "03-jun",
-      "time": "18:05",
-      "status": "Completado",
+      "time": "18:10",
+      "status": "Fucionado",
       "impact": "Alto"
     },
     {
-      "user": "Joel Chaparro",
-      "action": "merge",
-      "description": "Merge branch 'main' into feature/squad-1-justifications",
-      "module": "Justificaciones",
-      "squad": "Squad 1",
+      "user": "Osmi29",
+      "action": "approval",
+      "description": "Pull Request #4:  define modulo 5 incidencias y reglas semaforo semanal (Estado: CLOSED)",
+      "module": "Incidencias",
+      "squad": "Squad 5",
       "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:04",
-      "status": "Completado",
+      "date": "02-jun",
+      "time": "21:22",
+      "status": "Fucionado",
       "impact": "Alto"
-    },
-    {
-      "user": "Iván Vivanco",
-      "action": "validation",
-      "description": "docs: define el modulo de notificaciones",
-      "module": "Notificaciones",
-      "squad": "Squad 4",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "17:07",
-      "status": "Completado",
-      "impact": "Medio"
     }
   ],
   "owners": [
@@ -291,18 +326,18 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 72,
+      "tasks": 49,
       "progress": 100,
-      "weekly": "48 cambios",
-      "prs": 16,
+      "weekly": "49 cambios",
+      "prs": 3,
       "status": "activo"
     },
     {
       "name": "Joel Chaparro",
       "squad": "Squad 1",
       "role": "Tech Lead Justificaciones",
-      "tasks": 5,
-      "progress": 69,
+      "tasks": 3,
+      "progress": 64,
       "weekly": "3 cambios",
       "prs": 1,
       "status": "activo"
@@ -311,8 +346,8 @@
       "name": "Eduardo García",
       "squad": "Squad 3",
       "role": "Tech Lead Citas",
-      "tasks": 3,
-      "progress": 66,
+      "tasks": 2,
+      "progress": 56,
       "weekly": "2 cambios",
       "prs": 1,
       "status": "activo"
@@ -321,8 +356,8 @@
       "name": "Ángel Zataráin",
       "squad": "Squad 2",
       "role": "Tech Lead Auditoría",
-      "tasks": 2,
-      "progress": 63,
+      "tasks": 1,
+      "progress": 48,
       "weekly": "1 cambios",
       "prs": 1,
       "status": "activo"
@@ -331,8 +366,8 @@
       "name": "Osmara Araujo",
       "squad": "Squad 5",
       "role": "Tech Lead Incidencias",
-      "tasks": 2,
-      "progress": 63,
+      "tasks": 1,
+      "progress": 48,
       "weekly": "1 cambios",
       "prs": 1,
       "status": "activo"
@@ -341,8 +376,8 @@
       "name": "Iván Vivanco",
       "squad": "Squad 4",
       "role": "Tech Lead Notificaciones",
-      "tasks": 2,
-      "progress": 63,
+      "tasks": 1,
+      "progress": 48,
       "weekly": "1 cambios",
       "prs": 1,
       "status": "activo"
@@ -351,8 +386,8 @@
       "name": "Magdalena Silva",
       "squad": "Squad 1",
       "role": "QA Engineer Justificaciones",
-      "tasks": 2,
-      "progress": 63,
+      "tasks": 1,
+      "progress": 48,
       "weekly": "1 cambios",
       "prs": 1,
       "status": "activo"
