@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-20T00:22:21.056Z",
-  "headCommit": "70aa8f9a65819011189e1d6c6e42c7b31ab0b15c",
+  "generatedAt": "2026-06-20T00:27:25.713Z",
+  "headCommit": "c366a4d0e60c49e75d876267d61a083eb93208cf",
   "githubAvailable": true,
-  "totalCommits": 63,
+  "totalCommits": 64,
   "totalPRs": 10,
   "mergedPRs": 9,
   "openPRs": 0,
@@ -33,7 +33,7 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 54
+      "progreso": 55
     }
   ],
   "prsBySquad": [
@@ -88,10 +88,22 @@
     },
     {
       "week": "Actual",
-      "commits": 3
+      "commits": 4
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "hotfix",
+      "description": "fix(deploy): refresh dashboard stats in web build",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "19-jun",
+      "time": "18:24",
+      "status": "Completado",
+      "impact": "Medio"
+    },
     {
       "user": "Jassiel García",
       "action": "hotfix",
@@ -261,18 +273,6 @@
       "impact": "Alto"
     },
     {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #7 from Cangregito/develop",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:33",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
       "user": "Langostin",
       "action": "approval",
       "description": "Pull Request #10: Feature/squad 2 authentication (Estado: CLOSED)",
@@ -338,9 +338,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 54,
+      "tasks": 55,
       "progress": 100,
-      "weekly": "54 cambios",
+      "weekly": "55 cambios",
       "prs": 3,
       "status": "activo"
     },

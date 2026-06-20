@@ -4,6 +4,17 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const outputPath = path.join(
+  repositoryRoot,
+  "apps/web/components/modules/executive-dashboard/git-stats.json"
+);
+const githubHeaders = {
+  Accept: "application/vnd.github+json",
+  "User-Agent": "SyncUT-App",
+  ...(process.env.GITHUB_TOKEN
+    ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+    : {}),
+};
 
 // Mapeo real de correos/nombres de git a integrantes y squads reales
 const MEMBER_MAPPING = [
@@ -108,26 +119,103 @@ function getSquadFromRefOrAuthor(ref, author) {
   return "Admin Master";
 }
 
-async function run() {
+function getLocalGitData() {
   try {
-    console.log("Generando estadísticas reales de Git y consultando GitHub API...");
-
-    // 1. Obtener commits locales reales
-    const rawLog = execSync('git log HEAD --pretty=format:"%an|%ae|%ad|%s" --date=iso-strict', {
+    const rawLog = execSync(
+      'git log HEAD --pretty=format:"%an|%ae|%ad|%s" --date=iso-strict',
+      {
+        cwd: repositoryRoot,
+        encoding: "utf-8",
+        maxBuffer: 1024 * 1024 * 10,
+        stdio: ["ignore", "pipe", "pipe"],
+      }
+    );
+    const headCommit = execSync("git rev-parse HEAD", {
+      cwd: repositoryRoot,
       encoding: "utf-8",
-      maxBuffer: 1024 * 1024 * 10,
-    });
-    const headCommit = execSync("git rev-parse HEAD", { encoding: "utf-8" }).trim();
+      stdio: ["ignore", "pipe", "pipe"],
+    }).trim();
 
     const commits = rawLog
       .trim()
       .split("\n")
       .filter(Boolean)
       .map((line) => {
-        const [name, email, dateStr, subject] = line.split("|");
-        const date = new Date(dateStr);
-        return { name, email, date, subject };
+        const [name, email, dateStr, ...subjectParts] = line.split("|");
+        return {
+          name,
+          email,
+          date: new Date(dateStr),
+          subject: subjectParts.join("|"),
+        };
       });
+
+    return { commits, headCommit };
+  } catch {
+    return null;
+  }
+}
+
+async function getGithubCommitData() {
+  const commits = [];
+  const sha = process.env.VERCEL_GIT_COMMIT_SHA;
+
+  for (let page = 1; page <= 10; page++) {
+    const params = new URLSearchParams({
+      per_page: "100",
+      page: String(page),
+      ...(sha ? { sha } : {}),
+    });
+    const response = await fetch(
+      `https://api.github.com/repos/Cangregito/SyncUT/commits?${params}`,
+      { headers: githubHeaders }
+    );
+    if (!response.ok) {
+      throw new Error(`GitHub commits API devolvió ${response.status}`);
+    }
+
+    const pageCommits = await response.json();
+    commits.push(
+      ...pageCommits.map((item) => ({
+        name: item.commit?.author?.name || item.author?.login || "Colaborador",
+        email: item.commit?.author?.email || "",
+        date: new Date(item.commit?.author?.date || item.commit?.committer?.date),
+        subject: (item.commit?.message || "").split("\n")[0],
+      }))
+    );
+
+    if (pageCommits.length < 100) {
+      return {
+        commits,
+        headCommit: sha || pageCommits[0]?.sha || "unknown",
+      };
+    }
+  }
+
+  return { commits, headCommit: sha || "unknown" };
+}
+
+async function run() {
+  try {
+    console.log("Generando estadísticas reales de Git y consultando GitHub API...");
+
+    // 1. Usar Git local cuando existe y la API de GitHub en builds sin carpeta .git.
+    let gitData = process.env.VERCEL ? null : getLocalGitData();
+    if (!gitData) {
+      console.log("Repositorio local no disponible; consultando commits desde GitHub API...");
+      try {
+        gitData = await getGithubCommitData();
+      } catch (error) {
+        if (fs.existsSync(outputPath)) {
+          console.warn(
+            `No fue posible actualizar commits (${error.message}); se conserva el JSON confirmado.`
+          );
+          return;
+        }
+        throw error;
+      }
+    }
+    const { commits, headCommit } = gitData;
 
     const totalCommits = commits.length;
 
@@ -173,8 +261,7 @@ async function run() {
     };
 
     try {
-      const headers = { "User-Agent": "SyncUT-App" };
-      const pullsRes = await fetch("https://api.github.com/repos/Cangregito/SyncUT/pulls?state=all&per_page=100", { headers });
+      const pullsRes = await fetch("https://api.github.com/repos/Cangregito/SyncUT/pulls?state=all&per_page=100", { headers: githubHeaders });
       if (pullsRes.ok) {
         pulls = await pullsRes.json();
         githubAvailable = true;
@@ -329,10 +416,6 @@ async function run() {
         }),
     };
 
-    const outputPath = path.join(
-      repositoryRoot,
-      "apps/web/components/modules/executive-dashboard/git-stats.json"
-    );
     fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2), "utf-8");
     console.log(`Estadísticas unificadas de Git y GitHub API generadas en ${outputPath}`);
   } catch (error) {
