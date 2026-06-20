@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-20T00:27:25.713Z",
-  "headCommit": "c366a4d0e60c49e75d876267d61a083eb93208cf",
+  "generatedAt": "2026-06-20T00:28:59.493Z",
+  "headCommit": "eb77036c993fdab51cdf62e2b75db108d5e957da",
   "githubAvailable": true,
-  "totalCommits": 64,
+  "totalCommits": 80,
   "totalPRs": 10,
   "mergedPRs": 9,
   "openPRs": 0,
@@ -33,7 +33,7 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 55
+      "progreso": 67
     }
   ],
   "prsBySquad": [
@@ -80,18 +80,54 @@
     },
     {
       "week": "W-2",
-      "commits": 26
+      "commits": 32
     },
     {
       "week": "W-1",
-      "commits": 5
+      "commits": 9
     },
     {
       "week": "Actual",
-      "commits": 4
+      "commits": 10
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "merge: integrate squad 6 chatbot",
+      "module": "Chatbot",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "19-jun",
+      "time": "18:28",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "merge: integrate squad 2 authentication",
+      "module": "Autenticación",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "19-jun",
+      "time": "18:28",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "hotfix",
+      "description": "fix(deploy): support gitless Vercel builds",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "19-jun",
+      "time": "18:28",
+      "status": "Completado",
+      "impact": "Medio"
+    },
     {
       "user": "Jassiel García",
       "action": "hotfix",
@@ -142,6 +178,54 @@
     },
     {
       "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #10 from Langostin/feature/squad-2-authentication",
+      "module": "Autenticación",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "15-jun",
+      "time": "21:30",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "langostin",
+      "action": "validation",
+      "description": "prueba",
+      "module": "Dashboard Base",
+      "squad": "Externo",
+      "sprint": "Sprint 3",
+      "date": "15-jun",
+      "time": "21:27",
+      "status": "Completado",
+      "impact": "Medio"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #9 from ReyMarroquin/feature/squad-6-chatbot",
+      "module": "Chatbot",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "15-jun",
+      "time": "19:31",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge branch 'main' into feature/squad-2-authentication",
+      "module": "Autenticación",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "05-jun",
+      "time": "19:19",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
       "action": "validation",
       "description": "feat(admin): implement dynamic role validation via Supabase profiles table, removing hardcoded email checks",
       "module": "Notificaciones",
@@ -149,6 +233,18 @@
       "sprint": "Sprint 3",
       "date": "05-jun",
       "time": "19:19",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge branch 'main' into feature/squad-2-authentication",
+      "module": "Autenticación",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "05-jun",
+      "time": "19:15",
       "status": "Completado",
       "impact": "Alto"
     },
@@ -173,102 +269,6 @@
       "sprint": "Sprint 3",
       "date": "05-jun",
       "time": "19:07",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "hotfix",
-      "description": "fix(auth): trim email whitespaces and show current user email on restricted page",
-      "module": "Autenticación",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "18:59",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "chore(login): assign admin role to master email in mockup login",
-      "module": "Autenticación",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "18:55",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat(admin): implement restricted admin route and auto-admin trigger for master email",
-      "module": "Notificaciones",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "18:01",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "test",
-      "description": "chore: update database types from remote schema and add connection test script",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "17:56",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat: integrate design mockups layout, custom tailwind theme and unified database schema",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "17:43",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "chore(docs): agregar mockups centralizados de stitch",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "19:48",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat(web): home como centro operativo de plataforma",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "19:35",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat(web): beta funcional por modulos con navegacion real",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "19:32",
       "status": "Completado",
       "impact": "Alto"
     },
@@ -338,9 +338,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 55,
+      "tasks": 67,
       "progress": 100,
-      "weekly": "55 cambios",
+      "weekly": "67 cambios",
       "prs": 3,
       "status": "activo"
     },
@@ -355,6 +355,16 @@
       "status": "activo"
     },
     {
+      "name": "Langostin",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 2,
+      "progress": 20,
+      "weekly": "2 cambios",
+      "prs": 0,
+      "status": "activo"
+    },
+    {
       "name": "Eduardo García",
       "squad": "Squad 3",
       "role": "Tech Lead Citas",
@@ -362,6 +372,26 @@
       "progress": 20,
       "weekly": "2 cambios",
       "prs": 1,
+      "status": "activo"
+    },
+    {
+      "name": "langostin",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 1,
+      "progress": 10,
+      "weekly": "1 cambios",
+      "prs": 0,
+      "status": "activo"
+    },
+    {
+      "name": "Rey David Marroquin",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 1,
+      "progress": 10,
+      "weekly": "1 cambios",
+      "prs": 0,
       "status": "activo"
     },
     {
