@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-30T01:39:51.784Z",
-  "headCommit": "e7132dfab09a571cac7634d9bdd71aea1a8484e4",
+  "generatedAt": "2026-06-30T01:42:13.762Z",
+  "headCommit": "47ce0559a8150769574c2005d4f95f2b65032226",
   "githubAvailable": true,
-  "totalCommits": 112,
+  "totalCommits": 119,
   "totalPRs": 19,
   "mergedPRs": 18,
   "openPRs": 0,
@@ -13,7 +13,7 @@
     },
     {
       "squad": "S2 (Autenticación)",
-      "progreso": 20
+      "progreso": 22
     },
     {
       "squad": "S3 (Citas)",
@@ -33,7 +33,7 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 56
+      "progreso": 58
     }
   ],
   "prsBySquad": [
@@ -88,7 +88,7 @@
     },
     {
       "week": "Actual",
-      "commits": 26
+      "commits": 33
     }
   ],
   "moduleEvidence": [
@@ -125,8 +125,8 @@
       "href": "/login",
       "description": "Controla acceso, registro, recuperacion de contrasena, perfiles y proteccion de rutas por rol.",
       "evidence": "El modulo acredita apoyo en identidad, acceso seguro, flujos de login/signup y recuperacion con Supabase Auth.",
-      "totalInteractions": 25,
-      "commits": 20,
+      "totalInteractions": 27,
+      "commits": 22,
       "pullRequests": 5,
       "mergedPullRequests": 5,
       "openPullRequests": 0,
@@ -253,8 +253,8 @@
       "href": "/admin",
       "description": "Consolida datos de Git/GitHub, Supabase, auditoria, despliegues y estado ejecutivo de la plataforma.",
       "evidence": "El modulo muestra evidencia de coordinacion, integracion de PRs, produccion y seguimiento del avance general.",
-      "totalInteractions": 58,
-      "commits": 56,
+      "totalInteractions": 60,
+      "commits": 58,
       "pullRequests": 2,
       "mergedPullRequests": 1,
       "openPullRequests": 0,
@@ -263,14 +263,62 @@
       ],
       "lastActivity": {
         "type": "commit",
-        "title": "fix: attribute governance metrics to pull request squads",
+        "title": "Merge remote-tracking branch 'origin/main'",
         "date": "29 jun 2026",
-        "time": "19:32",
-        "iso": "2026-06-30T01:32:13.000Z"
+        "time": "19:41",
+        "iso": "2026-06-30T01:41:18.000Z"
       }
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge remote-tracking branch 'origin/main'",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:41",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "validation",
+      "description": "feat: show module evidence from git and pull requests",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:40",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #19 from Alan79238/feature/squad-2-authentication",
+      "module": "Autenticación",
+      "squad": "Squad 2",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:33",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge branch 'main' into feature/squad-2-authentication",
+      "module": "Autenticación",
+      "squad": "Squad 2",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:33",
+      "status": "Completado",
+      "impact": "Alto"
+    },
     {
       "user": "Jassiel García",
       "action": "hotfix",
@@ -280,6 +328,18 @@
       "sprint": "Sprint 3",
       "date": "29-jun",
       "time": "19:32",
+      "status": "Completado",
+      "impact": "Medio"
+    },
+    {
+      "user": "Alan79238",
+      "action": "validation",
+      "description": "Prueba Alan",
+      "module": "Dashboard Base",
+      "squad": "Externo",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:25",
       "status": "Completado",
       "impact": "Medio"
     },
@@ -306,6 +366,18 @@
       "time": "19:20",
       "status": "Completado",
       "impact": "Alto"
+    },
+    {
+      "user": "Alan79238",
+      "action": "validation",
+      "description": "Push de alan",
+      "module": "Dashboard Base",
+      "squad": "Externo",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:20",
+      "status": "Completado",
+      "impact": "Medio"
     },
     {
       "user": "Jassiel García",
@@ -380,78 +452,6 @@
       "impact": "Alto"
     },
     {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #17 from Cangregito/feature/squad-2-authentication",
-      "module": "Autenticación",
-      "squad": "Squad 2",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:00",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #13 from Langostin/main",
-      "module": "Autenticación",
-      "squad": "Squad 2",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:00",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge branch 'feature/squad-2-authentication' into main",
-      "module": "Autenticación",
-      "squad": "Squad 2",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:59",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #16 from alexisz666/feature/squad-6-chatbot",
-      "module": "Chatbot",
-      "squad": "Squad 6",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:58",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #14 from eytsugey/feature/squad-5-incidents",
-      "module": "Incidencias",
-      "squad": "Squad 5",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:57",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #15 from LaloG1/feature/squad-3-appointments",
-      "module": "Citas",
-      "squad": "Squad 3",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:54",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
       "user": "Alan79238",
       "action": "approval",
       "description": "Pull Request #19: Feature/squad 2 authentication (Estado: CLOSED)",
@@ -517,9 +517,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 92,
+      "tasks": 96,
       "progress": 100,
-      "weekly": "88 commits · 4 PRs",
+      "weekly": "92 commits · 4 PRs",
       "prs": 4,
       "status": "activo"
     },
@@ -551,6 +551,16 @@
       "progress": 70,
       "weekly": "4 commits · 3 PRs",
       "prs": 3,
+      "status": "activo"
+    },
+    {
+      "name": "Alan79238",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 3,
+      "progress": 30,
+      "weekly": "3 commits · 0 PRs",
+      "prs": 0,
       "status": "activo"
     },
     {
