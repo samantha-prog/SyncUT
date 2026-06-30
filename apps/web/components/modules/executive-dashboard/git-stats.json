@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-30T01:30:09.323Z",
-  "headCommit": "3341a42f0fefce3988c753e344b44b08c5c39db4",
+  "generatedAt": "2026-06-30T01:39:51.784Z",
+  "headCommit": "e7132dfab09a571cac7634d9bdd71aea1a8484e4",
   "githubAvailable": true,
-  "totalCommits": 111,
+  "totalCommits": 112,
   "totalPRs": 19,
-  "mergedPRs": 17,
-  "openPRs": 1,
+  "mergedPRs": 18,
+  "openPRs": 0,
   "commitsBySquad": [
     {
       "squad": "S1 (Justificaciones)",
@@ -33,7 +33,7 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 55
+      "progreso": 56
     }
   ],
   "prsBySquad": [
@@ -45,7 +45,7 @@
     {
       "squad": "S2 (Autenticación)",
       "total": 5,
-      "closed": 4
+      "closed": 5
     },
     {
       "squad": "S3 (Citas)",
@@ -80,18 +80,209 @@
     },
     {
       "week": "W-2",
-      "commits": 3
+      "commits": 4
     },
     {
       "week": "W-1",
-      "commits": 13
+      "commits": 12
     },
     {
       "week": "Actual",
-      "commits": 25
+      "commits": 26
+    }
+  ],
+  "moduleEvidence": [
+    {
+      "squad": "Squad 1",
+      "squadLabel": "Squad 1",
+      "name": "Justificaciones",
+      "href": "/justificaciones",
+      "description": "Gestiona solicitudes de faltas con folio, evidencia, vencimiento, revision administrativa y auditoria.",
+      "evidence": "El modulo demuestra trabajo en tramites academicos, carga de evidencias, bitacora y notificaciones de estado.",
+      "totalInteractions": 10,
+      "commits": 7,
+      "pullRequests": 3,
+      "mergedPullRequests": 3,
+      "openPullRequests": 0,
+      "contributors": [
+        "Jassiel García",
+        "Joel Chaparro",
+        "Karla",
+        "Magdalena Silva"
+      ],
+      "lastActivity": {
+        "type": "pull_request_merged",
+        "title": "PR #18: Prueba de push en Front End",
+        "date": "29 jun 2026",
+        "time": "19:22",
+        "iso": "2026-06-30T01:22:58.000Z"
+      }
+    },
+    {
+      "squad": "Squad 2",
+      "squadLabel": "Squad 2",
+      "name": "Autenticación",
+      "href": "/login",
+      "description": "Controla acceso, registro, recuperacion de contrasena, perfiles y proteccion de rutas por rol.",
+      "evidence": "El modulo acredita apoyo en identidad, acceso seguro, flujos de login/signup y recuperacion con Supabase Auth.",
+      "totalInteractions": 25,
+      "commits": 20,
+      "pullRequests": 5,
+      "mergedPullRequests": 5,
+      "openPullRequests": 0,
+      "contributors": [
+        "Alan79238",
+        "Jassiel García",
+        "Langostin",
+        "Ángel Zataráin"
+      ],
+      "lastActivity": {
+        "type": "pull_request_merged",
+        "title": "PR #19: Feature/squad 2 authentication",
+        "date": "29 jun 2026",
+        "time": "19:33",
+        "iso": "2026-06-30T01:33:19.000Z"
+      }
+    },
+    {
+      "squad": "Squad 3",
+      "squadLabel": "Squad 3",
+      "name": "Citas",
+      "href": "/citas",
+      "description": "Administra agenda de tutorias, disponibilidad, estados de cita, asistencia/no-show y seguimiento.",
+      "evidence": "El modulo evidencia trabajo en flujo de tutorias, disponibilidad real, auditoria de cambios y notas posteriores.",
+      "totalInteractions": 9,
+      "commits": 7,
+      "pullRequests": 2,
+      "mergedPullRequests": 2,
+      "openPullRequests": 0,
+      "contributors": [
+        "Eduardo García",
+        "Jassiel García"
+      ],
+      "lastActivity": {
+        "type": "commit",
+        "title": "Merge remote-tracking branch 'origin/feature/squad-3-appointments'",
+        "date": "29 jun 2026",
+        "time": "19:15",
+        "iso": "2026-06-30T01:15:16.000Z"
+      }
+    },
+    {
+      "squad": "Squad 4",
+      "squadLabel": "Squad 4",
+      "name": "Notificaciones",
+      "href": "/notificaciones",
+      "description": "Opera bandeja in-app, preferencias, bitacora, cola de correo y emision de eventos entre modulos.",
+      "evidence": "El modulo respalda comunicacion del sistema con logs, preferencias y cola procesable por Edge Function.",
+      "totalInteractions": 6,
+      "commits": 5,
+      "pullRequests": 1,
+      "mergedPullRequests": 1,
+      "openPullRequests": 0,
+      "contributors": [
+        "Iván Vivanco",
+        "Jassiel García",
+        "Ponkis"
+      ],
+      "lastActivity": {
+        "type": "commit",
+        "title": "merge: integrate squad 4 notifications",
+        "date": "25 jun 2026",
+        "time": "21:14",
+        "iso": "2026-06-26T03:14:41.000Z"
+      }
+    },
+    {
+      "squad": "Squad 5",
+      "squadLabel": "Squad 5",
+      "name": "Incidencias",
+      "href": "/incidencias",
+      "description": "Registra reportes, prioridades, categorias, SLA, asignaciones, comentarios y cierre con resumen.",
+      "evidence": "El modulo evidencia atencion operativa, trazabilidad de reportes, cumplimiento SLA y seguimiento por staff.",
+      "totalInteractions": 15,
+      "commits": 11,
+      "pullRequests": 4,
+      "mergedPullRequests": 4,
+      "openPullRequests": 0,
+      "contributors": [
+        "Eytsugey",
+        "Jassiel García",
+        "Marvin",
+        "Osmara Araujo",
+        "Sugey Ortega"
+      ],
+      "lastActivity": {
+        "type": "commit",
+        "title": "Merge remote-tracking branch 'origin/feature/squad-5-incidents'",
+        "date": "29 jun 2026",
+        "time": "19:15",
+        "iso": "2026-06-30T01:15:29.000Z"
+      }
+    },
+    {
+      "squad": "Squad 6",
+      "squadLabel": "Squad 6",
+      "name": "Chatbot",
+      "href": "/chatbot",
+      "description": "Mantiene conversaciones, FAQ oficial, mensajes, feedback y escalaciones humanas con notificacion.",
+      "evidence": "El modulo acredita apoyo en autoservicio, base de conocimiento, conversaciones persistentes y handoffs.",
+      "totalInteractions": 8,
+      "commits": 6,
+      "pullRequests": 2,
+      "mergedPullRequests": 2,
+      "openPullRequests": 0,
+      "contributors": [
+        "Alexis",
+        "Jassiel García",
+        "Rey David Marroquin",
+        "Rey Marroquin"
+      ],
+      "lastActivity": {
+        "type": "commit",
+        "title": "Merge remote-tracking branch 'origin/feature/squad-6-chatbot'",
+        "date": "29 jun 2026",
+        "time": "19:18",
+        "iso": "2026-06-30T01:18:07.000Z"
+      }
+    },
+    {
+      "squad": "Admin Master",
+      "squadLabel": "Admin",
+      "name": "Gobernanza",
+      "href": "/admin",
+      "description": "Consolida datos de Git/GitHub, Supabase, auditoria, despliegues y estado ejecutivo de la plataforma.",
+      "evidence": "El modulo muestra evidencia de coordinacion, integracion de PRs, produccion y seguimiento del avance general.",
+      "totalInteractions": 58,
+      "commits": 56,
+      "pullRequests": 2,
+      "mergedPullRequests": 1,
+      "openPullRequests": 0,
+      "contributors": [
+        "Jassiel García"
+      ],
+      "lastActivity": {
+        "type": "commit",
+        "title": "fix: attribute governance metrics to pull request squads",
+        "date": "29 jun 2026",
+        "time": "19:32",
+        "iso": "2026-06-30T01:32:13.000Z"
+      }
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "hotfix",
+      "description": "fix: attribute governance metrics to pull request squads",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:32",
+      "status": "Completado",
+      "impact": "Medio"
+    },
     {
       "user": "Jassiel García",
       "action": "validation",
@@ -261,27 +452,15 @@
       "impact": "Alto"
     },
     {
-      "user": "Alexis",
-      "action": "validation",
-      "description": "Modulo chatbot: tablas de preguntas/respuestas y logica de consulta",
-      "module": "Chatbot",
-      "squad": "Squad 6",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:43",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
       "user": "Alan79238",
       "action": "approval",
-      "description": "Pull Request #19: Feature/squad 2 authentication (Estado: OPEN)",
+      "description": "Pull Request #19: Feature/squad 2 authentication (Estado: CLOSED)",
       "module": "Autenticación",
       "squad": "Squad 2",
       "sprint": "Sprint 3",
       "date": "29-jun",
       "time": "19:29",
-      "status": "Abierto",
+      "status": "Fusionado",
       "impact": "Alto"
     },
     {
@@ -338,9 +517,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 91,
+      "tasks": 92,
       "progress": 100,
-      "weekly": "87 commits · 4 PRs",
+      "weekly": "88 commits · 4 PRs",
       "prs": 4,
       "status": "activo"
     },

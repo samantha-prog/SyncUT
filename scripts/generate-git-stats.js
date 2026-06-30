@@ -16,6 +16,72 @@ const githubHeaders = {
     : {}),
 };
 
+const MODULE_EVIDENCE = {
+  "Squad 1": {
+    name: "Justificaciones",
+    squadLabel: "Squad 1",
+    href: "/justificaciones",
+    description:
+      "Gestiona solicitudes de faltas con folio, evidencia, vencimiento, revision administrativa y auditoria.",
+    evidence:
+      "El modulo demuestra trabajo en tramites academicos, carga de evidencias, bitacora y notificaciones de estado.",
+  },
+  "Squad 2": {
+    name: "Autenticación",
+    squadLabel: "Squad 2",
+    href: "/login",
+    description:
+      "Controla acceso, registro, recuperacion de contrasena, perfiles y proteccion de rutas por rol.",
+    evidence:
+      "El modulo acredita apoyo en identidad, acceso seguro, flujos de login/signup y recuperacion con Supabase Auth.",
+  },
+  "Squad 3": {
+    name: "Citas",
+    squadLabel: "Squad 3",
+    href: "/citas",
+    description:
+      "Administra agenda de tutorias, disponibilidad, estados de cita, asistencia/no-show y seguimiento.",
+    evidence:
+      "El modulo evidencia trabajo en flujo de tutorias, disponibilidad real, auditoria de cambios y notas posteriores.",
+  },
+  "Squad 4": {
+    name: "Notificaciones",
+    squadLabel: "Squad 4",
+    href: "/notificaciones",
+    description:
+      "Opera bandeja in-app, preferencias, bitacora, cola de correo y emision de eventos entre modulos.",
+    evidence:
+      "El modulo respalda comunicacion del sistema con logs, preferencias y cola procesable por Edge Function.",
+  },
+  "Squad 5": {
+    name: "Incidencias",
+    squadLabel: "Squad 5",
+    href: "/incidencias",
+    description:
+      "Registra reportes, prioridades, categorias, SLA, asignaciones, comentarios y cierre con resumen.",
+    evidence:
+      "El modulo evidencia atencion operativa, trazabilidad de reportes, cumplimiento SLA y seguimiento por staff.",
+  },
+  "Squad 6": {
+    name: "Chatbot",
+    squadLabel: "Squad 6",
+    href: "/chatbot",
+    description:
+      "Mantiene conversaciones, FAQ oficial, mensajes, feedback y escalaciones humanas con notificacion.",
+    evidence:
+      "El modulo acredita apoyo en autoservicio, base de conocimiento, conversaciones persistentes y handoffs.",
+  },
+  "Admin Master": {
+    name: "Gobernanza",
+    squadLabel: "Admin",
+    href: "/admin",
+    description:
+      "Consolida datos de Git/GitHub, Supabase, auditoria, despliegues y estado ejecutivo de la plataforma.",
+    evidence:
+      "El modulo muestra evidencia de coordinacion, integracion de PRs, produccion y seguimiento del avance general.",
+  },
+};
+
 // Mapeo real de correos/nombres de git a integrantes y squads reales
 const MEMBER_MAPPING = [
   {
@@ -187,6 +253,26 @@ function getSquadFromPullRequest(pr) {
     .join(" ");
 
   return getSquadFromRefOrAuthor(searchableRef, pr.user?.login);
+}
+
+function formatDateTimeForEvidence(date) {
+  if (!date || Number.isNaN(date.getTime())) {
+    return { date: "Sin fecha", time: "--:--", iso: null };
+  }
+
+  return {
+    date: date.toLocaleDateString("es-MX", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }),
+    time: date.toLocaleTimeString("es-MX", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }),
+    iso: date.toISOString(),
+  };
 }
 
 function getPullRequestNumberFromSubject(subject) {
@@ -397,6 +483,67 @@ async function run() {
       ownerStats[member.realName].pullRequests++;
     });
 
+    const moduleEvidence = Object.entries(MODULE_EVIDENCE).map(([squad, meta]) => {
+      const squadCommits = commits.filter((commit) => getSquadFromCommit(commit, pullsByNumber) === squad);
+      const squadPulls = pulls.filter((pr) => getSquadFromPullRequest(pr) === squad);
+      const contributors = new Set();
+
+      squadCommits.forEach((commit) => {
+        const member = identifyContributor(commit.name, commit.email);
+        if (member.realName && member.realName !== "Colaborador") {
+          contributors.add(member.realName);
+        }
+      });
+      squadPulls.forEach((pr) => {
+        const login = pr.user?.login?.toLowerCase();
+        const member = MEMBER_MAPPING.find((item) =>
+          item.githubUsernames.some((username) => username.toLowerCase() === login)
+        );
+        contributors.add(member?.realName ?? pr.user?.login ?? "GitHub User");
+      });
+
+      const activityCandidates = [
+        ...squadCommits.map((commit) => ({
+          date: commit.date,
+          title: commit.subject,
+          type: "commit",
+        })),
+        ...squadPulls.map((pr) => ({
+          date: new Date(pr.updated_at || pr.created_at),
+          title: `PR #${pr.number}: ${pr.title}`,
+          type: pr.merged_at ? "pull_request_merged" : pr.state === "open" ? "pull_request_open" : "pull_request_closed",
+        })),
+      ].sort((a, b) => b.date - a.date);
+
+      const lastActivity = activityCandidates[0] ?? null;
+      const formattedLastActivity = formatDateTimeForEvidence(lastActivity?.date);
+      const totalInteractions = squadCommits.length + squadPulls.length;
+
+      return {
+        squad,
+        squadLabel: meta.squadLabel,
+        name: meta.name,
+        href: meta.href,
+        description: meta.description,
+        evidence: meta.evidence,
+        totalInteractions,
+        commits: squadCommits.length,
+        pullRequests: squadPulls.length,
+        mergedPullRequests: squadPulls.filter((pr) => Boolean(pr.merged_at)).length,
+        openPullRequests: squadPulls.filter((pr) => pr.state === "open").length,
+        contributors: Array.from(contributors).sort(),
+        lastActivity: lastActivity
+          ? {
+              type: lastActivity.type,
+              title: lastActivity.title,
+              date: formattedLastActivity.date,
+              time: formattedLastActivity.time,
+              iso: formattedLastActivity.iso,
+            }
+          : null,
+      };
+    });
+
     // 3. Crear feed de actividades unificado (Commits + PRs)
     const recentActivities = [];
 
@@ -502,6 +649,7 @@ async function run() {
         { squad: "Admin (Dashboard Gobernanza)", total: prsBySquad["Admin Master"].total, closed: prsBySquad["Admin Master"].closed },
       ],
       commitsByWeek,
+      moduleEvidence,
       recentActivities: recentActivities.slice(0, 25), // Mantener el feed conciso
       owners: Object.values(ownerStats)
         .sort((a, b) => b.commits - a.commits)

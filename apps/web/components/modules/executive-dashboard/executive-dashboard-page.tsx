@@ -490,12 +490,26 @@ export function ExecutiveDashboardPage() {
           <CardHeader>
             <CardTitle className="font-headline font-bold text-on-surface">Dashboard de módulos</CardTitle>
             <CardDescription className="text-on-surface-variant text-xs">
-              Vista corporativa de avance por módulo con responsable, roadmap y trazabilidad de cambios.
+              Evidencia de apoyo por equipo con datos reales de Git/GitHub: commits, Pull Requests, responsables y última actividad.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {liveStats.moduleMetrics.map((module) => {
-              const roadmapProgress = module.tone === "success" ? 100 : module.tone === "info" ? 75 : 50;
+            {(gitStats.moduleEvidence ?? []).map((module) => {
+              const maxInteractions = Math.max(
+                ...(gitStats.moduleEvidence ?? []).map((item) => item.totalInteractions),
+                1
+              );
+              const interactionProgress = Math.max(
+                8,
+                Math.round((module.totalInteractions / maxInteractions) * 100)
+              );
+              const badgeVariant =
+                module.totalInteractions === 0
+                  ? "danger"
+                  : module.openPullRequests > 0
+                    ? "warning"
+                    : "success";
+
               return (
                 <details
                   key={module.name}
@@ -504,47 +518,87 @@ export function ExecutiveDashboardPage() {
                   <summary className="cursor-pointer list-none">
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <p className="font-semibold text-on-surface text-base">{module.name}</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-primary">{module.squadLabel}</p>
+                        <p className="mt-1 font-semibold text-on-surface text-base">{module.name}</p>
                         <p className="mt-1 text-xs text-on-surface-variant leading-relaxed">
                           {module.description}
                         </p>
                       </div>
-                      <Badge variant={module.tone}>
-                        {module.statusLabel}
+                      <Badge variant={badgeVariant}>
+                        {module.totalInteractions} interacciones
                       </Badge>
+                    </div>
+                    <div className="mt-4 grid grid-cols-3 gap-2 text-xs">
+                      <div className="rounded border border-outline-variant bg-surface-container px-2 py-2">
+                        <p className="text-on-surface-variant">Commits</p>
+                        <p className="mt-1 text-base font-bold text-on-surface">{module.commits}</p>
+                      </div>
+                      <div className="rounded border border-outline-variant bg-surface-container px-2 py-2">
+                        <p className="text-on-surface-variant">PRs</p>
+                        <p className="mt-1 text-base font-bold text-on-surface">{module.pullRequests}</p>
+                      </div>
+                      <div className="rounded border border-outline-variant bg-surface-container px-2 py-2">
+                        <p className="text-on-surface-variant">Merge</p>
+                        <p className="mt-1 text-base font-bold text-on-surface">{module.mergedPullRequests}</p>
+                      </div>
                     </div>
                     <div className="mt-3">
                       <div className="mb-1 flex justify-between text-xs text-on-surface-variant font-medium">
-                        <span>Estado operacional</span>
-                        <span className="text-on-surface font-semibold">{roadmapProgress}%</span>
+                        <span>Participación relativa por Git/GitHub</span>
+                        <span className="text-on-surface font-semibold">{interactionProgress}%</span>
                       </div>
-                      <Progress value={roadmapProgress} indicatorClassName="bg-primary" />
+                      <Progress value={interactionProgress} indicatorClassName="bg-primary" />
+                    </div>
+                    <p className="mt-3 text-[11px] text-on-surface-variant">
+                      Última actividad:{" "}
+                      <span className="font-semibold text-on-surface">
+                        {module.lastActivity
+                          ? `${module.lastActivity.date} ${module.lastActivity.time}`
+                          : "Sin actividad detectada"}
+                      </span>
+                    </p>
+                    {module.lastActivity ? (
+                      <p className="mt-1 line-clamp-2 text-[11px] text-on-surface-variant">
+                        {module.lastActivity.title}
+                      </p>
+                    ) : null}
+                    <p className="mt-3 line-clamp-3 text-xs leading-relaxed text-on-surface-variant">
+                      {module.evidence}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-1">
+                      {(module.contributors.length > 0 ? module.contributors : ["Sin autor detectado"]).slice(0, 4).map((name) => (
+                        <span key={name} className="rounded bg-surface-container-highest px-2 py-1 text-[10px] font-semibold text-on-surface-variant">
+                          {name}
+                        </span>
+                      ))}
                     </div>
                   </summary>
 
                   <div className="mt-4 space-y-4 text-xs text-on-surface-variant border-t border-outline-variant pt-3">
                     <div>
-                      <p className="mb-1 font-semibold text-on-surface">Información general</p>
-                      <p><span className="font-medium text-on-surface">Fuente:</span> Supabase / tablas operativas</p>
+                      <p className="mb-1 font-semibold text-on-surface">Evidencia de avance</p>
+                      <p><span className="font-medium text-on-surface">Fuente:</span> Git local + GitHub Pull Requests</p>
                       <p><span className="font-medium text-on-surface">Ruta:</span> {module.href}</p>
-                      <p><span className="font-medium text-on-surface">Estado:</span> {module.statusLabel}</p>
+                      <p><span className="font-medium text-on-surface">Interacciones totales:</span> {module.totalInteractions}</p>
                     </div>
                     <div>
-                      <p className="mb-1 font-semibold text-on-surface">Métricas reales de operación</p>
-                      <p><span className="font-medium text-on-surface">Total:</span> {module.total} {module.totalLabel}</p>
-                      <p><span className="font-medium text-on-surface">Pendientes de atención:</span> {module.attention}</p>
+                      <p className="mb-1 font-semibold text-on-surface">Detalle Git/GitHub</p>
+                      <p><span className="font-medium text-on-surface">Commits y merges asignados:</span> {module.commits}</p>
+                      <p><span className="font-medium text-on-surface">Pull Requests:</span> {module.pullRequests} total · {module.mergedPullRequests} fusionados · {module.openPullRequests} abiertos</p>
+                      <p><span className="font-medium text-on-surface">Última evidencia:</span> {module.lastActivity ? `${module.lastActivity.date} ${module.lastActivity.time}` : "Sin fecha"}</p>
                     </div>
                     <div>
-                      <p className="mb-1 font-semibold text-on-surface">Criterio del semáforo</p>
-                      <p>Verde cuando no hay pendientes visibles; amarillo cuando existen tareas abiertas, SLA vencido o colas sin procesar.</p>
+                      <p className="mb-1 font-semibold text-on-surface">Descripción de avance</p>
+                      <p>{module.evidence}</p>
+                      <p className="mt-2"><span className="font-medium text-on-surface">Responsables detectados:</span> {module.contributors.length > 0 ? module.contributors.join(", ") : "No detectados en GitHub"}</p>
                     </div>
                 </div>
               </details>
             );
           })}
-            {liveStats.moduleMetrics.length === 0 ? (
+            {(gitStats.moduleEvidence ?? []).length === 0 ? (
               <div className="rounded-lg border border-outline-variant bg-surface-container-low p-4 text-sm text-on-surface-variant md:col-span-2 xl:col-span-3">
-                No hay datos operativos legibles para el usuario actual. Revisa sesión, RLS o variables públicas de Supabase.
+                No hay evidencia Git/GitHub generada. Ejecuta el generador de estadísticas para actualizar el panel.
               </div>
             ) : null}
           </CardContent>
