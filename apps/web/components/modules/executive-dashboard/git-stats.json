@@ -1,8 +1,8 @@
 {
-  "totalCommits": 58,
-  "totalPRs": 8,
-  "mergedPRs": 8,
-  "openPRs": 0,
+  "totalCommits": 62,
+  "totalPRs": 14,
+  "mergedPRs": 12,
+  "openPRs": 2,
   "commitsBySquad": [
     {
       "squad": "S1 (Justificaciones)",
@@ -37,8 +37,8 @@
     },
     {
       "squad": "S2 (Autenticación)",
-      "total": 0,
-      "closed": 0
+      "total": 1,
+      "closed": 1
     },
     {
       "squad": "S3 (Citas)",
@@ -52,34 +52,70 @@
     },
     {
       "squad": "S5 (Incidencias)",
-      "total": 2,
-      "closed": 2
+      "total": 4,
+      "closed": 3
     },
     {
       "squad": "S6 (Chatbot)",
-      "total": 0,
-      "closed": 0
+      "total": 1,
+      "closed": 1
     }
   ],
   "commitsByWeek": [
     {
       "week": "W-3",
-      "commits": 0
+      "commits": 32
     },
     {
       "week": "W-2",
-      "commits": 25
+      "commits": 0
     },
     {
       "week": "W-1",
-      "commits": 4
+      "commits": 1
     },
     {
       "week": "Actual",
-      "commits": 29
+      "commits": 0
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #9 from ReyMarroquin/feature/squad-6-chatbot",
+      "module": "Chatbot",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "15-jun",
+      "time": "19:31",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "validation",
+      "description": "feat(admin): implement dynamic role validation via Supabase profiles table, removing hardcoded email checks",
+      "module": "Notificaciones",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "05-jun",
+      "time": "19:19",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "validation",
+      "description": "feat(admin): fetch pull requests from GitHub and compute module progress dynamically",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "05-jun",
+      "time": "19:13",
+      "status": "Completado",
+      "impact": "Alto"
+    },
     {
       "user": "Jassiel García",
       "action": "validation",
@@ -153,6 +189,18 @@
       "impact": "Alto"
     },
     {
+      "user": "Rey David Marroquin",
+      "action": "validation",
+      "description": "Prueba de push a rama feature/squad-6-chatbot",
+      "module": "Chatbot",
+      "squad": "Externo",
+      "sprint": "Sprint 3",
+      "date": "04-jun",
+      "time": "21:17",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
       "user": "Jassiel García",
       "action": "validation",
       "description": "chore(docs): agregar mockups centralizados de stitch",
@@ -213,110 +261,62 @@
       "impact": "Alto"
     },
     {
-      "user": "Ángel Zataráin",
-      "action": "test",
-      "description": "develop-test",
-      "module": "Dashboard Base",
-      "squad": "Squad 2",
-      "sprint": "Sprint 3",
-      "date": "01-jun",
-      "time": "21:29",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Osmara Araujo",
-      "action": "validation",
-      "description": "docs: define modulo 5 incidencias y reglas semaforo semanal",
+      "user": "eytsugey",
+      "action": "approval",
+      "description": "Pull Request #14: feat(incidents): agrega estructura inicial para diseño de login (Estado: OPEN)",
       "module": "Incidencias",
       "squad": "Squad 5",
       "sprint": "Sprint 3",
-      "date": "02-jun",
-      "time": "20:36",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #5 from panadero414/feature/squad-1-justifications",
-      "module": "Justificaciones",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
+      "date": "29-jun",
       "time": "18:23",
-      "status": "Completado",
+      "status": "Abierto",
       "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "chore: finalize CI/tooling alignment and pnpm hygiene",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:11",
-      "status": "Completado",
-      "impact": "Medio"
     },
     {
       "user": "Langostin",
       "action": "approval",
-      "description": "Pull Request #8: prueba pull request (Estado: CLOSED)",
+      "description": "Pull Request #13: prueba (Estado: OPEN)",
       "module": "Dashboard Base",
       "squad": "Admin Master",
       "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "11:59",
-      "status": "Fucionado",
+      "date": "25-jun",
+      "time": "21:09",
+      "status": "Abierto",
       "impact": "Alto"
     },
     {
-      "user": "Cangregito",
+      "user": "ponkis",
       "action": "approval",
-      "description": "Pull Request #7: develop-test (Estado: CLOSED)",
+      "description": "Pull Request #12: Modificacion General a Frontend (Estado: CLOSED)",
       "module": "Dashboard Base",
       "squad": "Admin Master",
       "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:32",
+      "date": "25-jun",
+      "time": "19:21",
       "status": "Fucionado",
       "impact": "Alto"
     },
     {
-      "user": "Cangregito",
+      "user": "Marvin61-LOVIU",
       "action": "approval",
-      "description": "Pull Request #6: docs: define modulo 5 incidencias y reglas semaforo semanal (Estado: CLOSED)",
+      "description": "Pull Request #11: Feature/squad 5 incidents, endpoints (Estado: CLOSED)",
       "module": "Incidencias",
       "squad": "Squad 5",
       "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:31",
+      "date": "24-jun",
+      "time": "15:06",
       "status": "Fucionado",
       "impact": "Alto"
     },
     {
-      "user": "panadero414",
+      "user": "Langostin",
       "action": "approval",
-      "description": "Pull Request #5: Feature/squad 1 justifications (Estado: CLOSED)",
-      "module": "Justificaciones",
-      "squad": "Squad 1",
+      "description": "Pull Request #10: Feature/squad 2 authentication (Estado: CLOSED)",
+      "module": "Autenticación",
+      "squad": "Squad 2",
       "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:10",
-      "status": "Fucionado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Osmi29",
-      "action": "approval",
-      "description": "Pull Request #4:  define modulo 5 incidencias y reglas semaforo semanal (Estado: CLOSED)",
-      "module": "Incidencias",
-      "squad": "Squad 5",
-      "sprint": "Sprint 3",
-      "date": "02-jun",
-      "time": "21:22",
+      "date": "15-jun",
+      "time": "21:28",
       "status": "Fucionado",
       "impact": "Alto"
     }
@@ -326,9 +326,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 49,
+      "tasks": 52,
       "progress": 100,
-      "weekly": "49 cambios",
+      "weekly": "52 cambios",
       "prs": 3,
       "status": "activo"
     },
@@ -349,6 +349,16 @@
       "tasks": 2,
       "progress": 56,
       "weekly": "2 cambios",
+      "prs": 1,
+      "status": "activo"
+    },
+    {
+      "name": "Rey David Marroquin",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 1,
+      "progress": 48,
+      "weekly": "1 cambios",
       "prs": 1,
       "status": "activo"
     },
