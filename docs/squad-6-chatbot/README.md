@@ -1,10 +1,10 @@
 # Equipo 6 - Chatbot
 
 ## Integrantes
-- Alexis
+- Pablo
 - Samantha
 - Rey
-- Pablo
+- Alexis
 
 ## Misión del módulo
 Implementar el canal de atención inteligente y automatizada para resolver dudas de la comunidad estudiantil.
